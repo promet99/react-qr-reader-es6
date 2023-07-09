@@ -1,17 +1,18 @@
 {
   "name": "@promet99/react-qr-reader-es6",
-  "version": "1.0.0",
+  "version": "1.0.7",
+  "type": "module",
   "description": "A react component for reading QR codes from the webcam.",
-  "main": "./lib/index.js",
+  "main": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "lib/",
-    "!/lib/worker.js"
+    "dist/"
   ],
   "scripts": {
     "start": "concurrently --kill-others \"npm run build:watch\" \"npm run storybook\"",
-    "build": "gulp",
-    "build:watch": "gulp watch",
-    "storybook": "start-storybook -p 6006 --no-manager-cache",
+    "build": "vite build",
+    "run:vite": "vite",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "repository": {
@@ -38,6 +39,9 @@
     "@storybook/addon-links": "^6.3.7",
     "@storybook/addons": "^6.3.7",
     "@storybook/react": "^6.3.7",
+    "@types/node": "^20.4.1",
+    "@vitejs/plugin-react": "^4.0.2",
+    "@vitejs/plugin-react-swc": "^3.3.2",
     "concurrently": "^6.2.1",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
@@ -47,14 +51,14 @@
     "gulp-replace": "^1.1.3",
     "gulp-uglify": "^3.0.2",
     "react": ">=16",
-    "react-dom": ">=16"
+    "react-dom": ">=16",
+    "vite": "^4.4.2"
   },
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
   },
   "dependencies": {
-    "jsqr-es6": "^1.4.0-1",
-    "prop-types": "^15.7.2"
+    "jsqr-es6": "^1.4.0-1"
   }
 }

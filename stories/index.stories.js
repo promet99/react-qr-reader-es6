@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import Reader from "../lib";
+
+import Reader from "../dist/index.es";
+
 class Wrapper extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,9 @@ class Wrapper extends Component {
           </button>
         )}
         {selectFacingMode && (
-          <select onChange={e => this.setState({ facingMode: e.target.value })}>
+          <select
+            onChange={(e) => this.setState({ facingMode: e.target.value })}
+          >
             <option value="user">User</option>
             <option value="environment">Environment</option>
           </select>
@@ -32,7 +36,9 @@ class Wrapper extends Component {
               placeholder="Delay in ms"
               type="number"
               value={this.state.delay}
-              onChange={e => this.setState({ delay: parseInt(e.target.value) })}
+              onChange={(e) =>
+                this.setState({ delay: parseInt(e.target.value) })
+              }
             />
           </div>
         )}
