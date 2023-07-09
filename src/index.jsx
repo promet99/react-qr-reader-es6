@@ -1,10 +1,42 @@
 import { Component } from "react";
 import { getDeviceId } from "./getDeviceId";
-import havePropsChanged from "./havePropsChanged";
-import QrWorker from "./worker.js?worker&inline"
+import { havePropsChanged } from "./havePropsChanged";
+import QrWorker from "./worker.js?worker&inline";
 
 // Props that are allowed to change dynamicly
 const propsKeys = ["delay", "legacyMode", "facingMode"];
+
+const containerStyle = {
+  overflow: "hidden",
+  position: "relative",
+  width: "100%",
+  paddingTop: "100%",
+};
+const hiddenStyle = { display: "none" };
+const previewStyle = {
+  top: 0,
+  left: 0,
+  display: "block",
+  position: "absolute",
+  overflow: "hidden",
+  width: "100%",
+  height: "100%",
+};
+const imgPreviewStyle = {
+  ...previewStyle,
+  objectFit: "scale-down",
+};
+const viewFinderStyle = {
+  top: 0,
+  left: 0,
+  zIndex: 1,
+  boxSizing: "border-box",
+  border: "50px solid rgba(0, 0, 0, 0.3)",
+  boxShadow: "inset 0 0 0 5px rgba(255, 0, 0, 0.5)",
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+};
 
 export class Reader extends Component {
   static defaultProps = {
@@ -67,11 +99,12 @@ export class Reader extends Component {
           clearTimeout(this.timeout);
         }
       } else if (prop == "legacyMode") {
-        if (prevProps.legacyMode && !this.props.legacyMode) {
-          this.clearComponent();
+        this.clearComponent();
+        const changedFromLegacyMode =
+          prevProps.legacyMode && !this.props.legacyMode;
+        if (changedFromLegacyMode) {
           this.initiate(this.props);
         } else {
-          this.clearComponent();
           this.componentDidUpdate = this.initiateLegacyMode;
         }
         break;
@@ -305,45 +338,12 @@ export class Reader extends Component {
       onImageLoad,
       legacyMode,
       showViewFinder,
-      facingMode,
     } = this.props;
 
-    const containerStyle = {
-      overflow: "hidden",
-      position: "relative",
-      width: "100%",
-      paddingTop: "100%",
-    };
-    const hiddenStyle = { display: "none" };
-    const previewStyle = {
-      top: 0,
-      left: 0,
-      display: "block",
-      position: "absolute",
-      overflow: "hidden",
-      width: "100%",
-      height: "100%",
-    };
     const videoPreviewStyle = {
       ...previewStyle,
       objectFit: "cover",
       transform: this.state.mirrorVideo ? "scaleX(-1)" : undefined,
-    };
-    const imgPreviewStyle = {
-      ...previewStyle,
-      objectFit: "scale-down",
-    };
-
-    const viewFinderStyle = {
-      top: 0,
-      left: 0,
-      zIndex: 1,
-      boxSizing: "border-box",
-      border: "50px solid rgba(0, 0, 0, 0.3)",
-      boxShadow: "inset 0 0 0 5px rgba(255, 0, 0, 0.5)",
-      position: "absolute",
-      width: "100%",
-      height: "100%",
     };
 
     return (
