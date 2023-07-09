@@ -1,5 +1,9 @@
 [![npm version](https://badge.fury.io/js/react-qr-reader.svg)](https://badge.fury.io/js/react-qr-reader)
 
+## Intro
+Forked again from https://github.com/dsonet/react-qr-reader-es6
+Now returns binary data (as number[]) of the QR code too.
+
 ## Introduction
 This project is adopted from [react-qr-reader](https://github.com/JodusNodus/react-qr-reader).
 I made a few changes:

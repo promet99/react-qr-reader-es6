@@ -1,6 +1,6 @@
 {
-  "name": "react-qr-reader-es6",
-  "version": "2.2.1-2",
+  "name": "@promet99/react-qr-reader-es6",
+  "version": "1.0.0",
   "description": "A react component for reading QR codes from the webcam.",
   "main": "./lib/index.js",
   "files": [
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dsonet/react-qr-reader-es6.git"
+    "url": "git+https://github.com/promet99/react-qr-reader-es6.git"
   },
   "keywords": [
     "react",
@@ -28,9 +28,9 @@
   "author": "thomas billiet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JodusNodus/react-qr-reader/issues"
+    "url": "https://github.com/promet99/react-qr-reader-es6"
   },
-  "homepage": "https://github.com/dsonet/react-qr-reader-es6#readme",
+  "homepage": "https://github.com/promet99/react-qr-reader-es6#readme",
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
