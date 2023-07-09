@@ -8,7 +8,7 @@ import * as React from "react";
 declare module 'react-qr-reader-es6';
 declare namespace QrReader {
   interface props {
-    onScan: (data: string | null) => void;
+    onScan: (e:{data: string | null}) => void;
     onError: (err: any) => void;
     onLoad?: (() => void) | undefined;
     onImageLoad?: ((event: React.SyntheticEvent<HTMLImageElement>) => void) | undefined;

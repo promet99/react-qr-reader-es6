@@ -11,7 +11,7 @@
     "start": "concurrently --kill-others \"npm run build:watch\" \"npm run storybook\"",
     "build": "gulp",
     "build:watch": "gulp watch",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook"
   },
   "repository": {
